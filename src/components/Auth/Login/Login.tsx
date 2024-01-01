@@ -13,12 +13,13 @@ const Login = () => {
     })
   return (
     <>
-    <div className='min-h-screen bg-gray-50 flex flex-col justify-center'>
-        <div className='max-w-md w-full mx-auto'>
-            <div className='text-center font-medium text-xl'>something</div>
-            <div className='text-3xl font-bold text-gray-300 mt-2 text-center'>another text</div>
-        </div>
+    <div className='flex flex-col justify-center'>
         <div className='max-w-md w-full mx-auto mt-4 bg-white p-8 border border-gray-300'>
+            <div className='max-w-md w-full mx-auto'>
+                <div className='text-center font-medium text-xl'>Welcome back</div>
+                <div className='text-sm font-bold text-gray-300 mt-2 text-center'>Login to your account</div>
+                <div className='text-sm font-bold text-gray-600 block'>Continue with Google</div>
+            </div>
             <form action='' className='space-y-6' onSubmit={onSubmit}>
                 <div>
                     <label htmlFor='' className='text-sm font-bold text-gray-600 block'>Email</label>
