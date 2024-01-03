@@ -5,7 +5,7 @@ interface formData {
     password: string
 }
 
-const Login = () => {
+const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<formData>();
 
     const onSubmit = handleSubmit(({username, password}) => {
@@ -42,4 +42,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Signup
