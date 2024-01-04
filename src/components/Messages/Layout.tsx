@@ -21,13 +21,15 @@ const Layout = () => {
                   className="search-icon w-4 h-4 text-center my-auto"
                   alt="Search icon"
                 />
-                <span className="text-gray-600 md:pr-3 text-sm my-auto">
+                <span className="hidden md:block text-gray-600 md:pr-3 text-sm my-auto">
                   Search for house{" "}
                 </span>
               </div>
               <div className="md:py-2 justify-center text-center flex gap-2 pr-1">
                 <span> | </span>
-                <span className="text-gray-600 my-auto text-sm">location</span>
+                <span className="hidden md:block text-gray-600 my-auto text-sm">
+                  location
+                </span>
                 <img
                   src={locationIcon}
                   className="location-icon w-4 h-4 text-center my-auto"
@@ -36,8 +38,7 @@ const Layout = () => {
               </div>
             </div>
             <div className="flex flex-row">
-              {/* create its own border */}
-              <div className="py-2 mr-5 ml-2 justify-center text-center flex h-8 w-8 border rounded rounded-lg">
+              <div className="py-2 md:py-3 md:mb-3  mr-5 ml-2 justify-center text-center flex h-8 w-8 border rounded rounded-lg">
                 <img
                   src={notificationIcon}
                   className="search-icon h-4 w-4 justify-center"
@@ -61,7 +62,7 @@ const Layout = () => {
               </div>
             </div>
           </div>
-          <div className="my-auto h-[50vh] flex justify-center">
+          <div className="my-auto h-[65vh] flex justify-center">
             <div className="w-1/2 mx-auto my-auto text-center">
               <div className="">
                 <img
@@ -71,14 +72,17 @@ const Layout = () => {
                 />
               </div>
               <p>No chats</p>
-              <span>You have not received or send anyone a message</span>
+              <p className="break-words">
+                You have not received or send anyone a
+                <br /> message
+              </p>
 
-              <div className="mr-2 md:mr-4 px-auto pr-1 md:pr-5 bg-light-blue">
-                <button className="md:px-4 md:py-2 mt-8 w-full border text-center flex gap-2 border-slate-200 text-slate-700">
+              <div className="md:w-[60%] py-4 mx-auto">
+                <button className="py-4 w-full border justify-center text-center flex gap-2 rounded-lg  bg-light-blue">
                   <img
                     src={plusIcon}
-                    className="chat-icon w-4 h-4 md:text-center mt-1 ml-1"
-                    alt="Chat icon"
+                    className="Add-icon w-4 h-4 mt-1 ml-1"
+                    alt="Add icon"
                   />
                   <span className="text-white text-xs md:text-base">
                     Add a person

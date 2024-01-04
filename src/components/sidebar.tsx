@@ -13,31 +13,31 @@ const Sidebar = () => {
               className="home-icon text-white"
               alt="Home icon"
             />
-            <p className="mt-2 mr-4 text-sm md:text-base lg:text-lg text-white">
+            <p className="mt-5 mr-4 text-sm md:text-base lg:text-lg text-white">
               Home
             </p>
           </div>
           {/* space between */}
           <div className="">
-            <div className="mr-2 md:mr-4 px-auto w-full pr-1 md:pr-5">
+            <div className="md:mx-2 pr-4 w-full md:pr-7">
               <button className="md:px-4 md:py-2 mt-8 bg-[#FFFFFF1A] w-full border text-center flex gap-2">
                 <img
                   src={chatIcon}
-                  className="chat-icon w-4 h-4 md:text-center mt-1 ml-1"
+                  className="hidden md:block chat-icon w-4 h-4 md:text-center mt-1 ml-1"
                   alt="Chat icon"
                 />
-                <span className="text-white text-xs md:text-base">
+                <span className="py-auto mx-auto md:mx-0 text-white text-xs md:text-base">
                   Messages
                 </span>
               </button>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-1 w-full">
-          <button className="md:px-4 md:py-2 md:mt-40 w-full border justify-center text-center flex gap-2 border-slate-200 rounded-lg text-slate-700 bg-[#FFEBEB]">
+        <div className="absolute bottom-7 w-full md:mx-2 pr-4 pl-4 md:pl-0 w-full md:pr-7">
+          <button className="md:px-4 md:py-2 md:mt-40 w-full border justify-center text-center flex gap-2 rounded-lg bg-[#FFEBEB]">
             <img
               src={logoutIcon}
-              className="logout-icon w-4 h-4 text-center mt-1"
+              className="hidden md:block logout-icon w-4 h-4 text-center mt-1 ml-1"
               alt="Logout icon"
             />
             <span className="text-red-600">Log out</span>
