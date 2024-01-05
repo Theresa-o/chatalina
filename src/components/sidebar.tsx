@@ -9,7 +9,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  const { user, logout } = useContext(AuthContext);
+  // const { user, logout } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
   return (
     <>
       <section className="w-[25%]">
@@ -45,7 +46,7 @@ const Sidebar = () => {
             </div>
           </div>
           <div className="absolute bottom-7 w-full md:mx-2 pr-4 pl-4 md:pl-0 w-full md:pr-7">
-            {user && (
+            {/* {user && (
               <button
                 className="md:px-4 md:py-2 md:mt-40 w-full border justify-center text-center flex gap-2 rounded-lg bg-[#FFEBEB]"
                 onClick={logout}
@@ -57,7 +58,18 @@ const Sidebar = () => {
                 />
                 <span className="text-red-600">Log out</span>
               </button>
-            )}
+            )} */}
+            <button
+              className="md:px-4 md:py-2 md:mt-40 w-full border justify-center text-center flex gap-2 rounded-lg bg-[#FFEBEB]"
+              onClick={logout}
+            >
+              <img
+                src={logoutIcon}
+                className="hidden md:block logout-icon w-4 h-4 text-center mt-1 ml-1"
+                alt="Logout icon"
+              />
+              <span className="text-red-600">Log out</span>
+            </button>
           </div>
         </div>
       </section>

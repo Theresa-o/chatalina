@@ -1,5 +1,5 @@
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 // import { AuthContextProvider } from "./contexts/AuthContext";
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -10,28 +10,13 @@ import Signup from "./components/Auth/Signup/Signup";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <Router>
         <Routes>
-          <Route
-            path="/"
-            element={
-              // <AuthContextProvider>
-              <Layout />
-              // </AuthContextProvider>
-            }
-          >
-            <Route
-              path="signup"
-              element={
-                // <ProtectedRoute>
-                <Signup />
-                // </ProtectedRoute>
-              }
-            />
-            <Route path="login" element={<Login />} />
-          </Route>
+          <Route path="/" element={<Layout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </>
   );
 }
