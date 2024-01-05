@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import Layout from "./components/Layout";
-import Login from "./components/Login";
+import Login from "./components/Auth/Login/Login";
 import Signup from "./components/Auth/Signup/Signup";
 
 function App() {
