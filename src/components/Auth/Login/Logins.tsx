@@ -1,23 +1,42 @@
-import { useForm } from "react-hook-form";
 import homeIcon from "/assets/home.svg";
 import vectorIcon from "/assets/vector.svg";
 import welcomeemojiIcon from "/assets/welcomeemoji.svg";
+import { useFormik } from "formik";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface formData {
-  email: string;
-  password: string;
-}
+import { AuthContext } from "../../../contexts/AuthContext";
 
 const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<formData>();
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const { user, login } = useContext(AuthContext);
 
-  const onSubmit = handleSubmit(({ email, password }) => {
-    console.log(email, password);
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: async (values, { setSubmitting }) => {
+      setSubmitting(true);
+      const { email, password } = values;
+      const res = await login(email, password);
+      if (res.error || res.data) {
+        if (res.data && res.data.detail) {
+          setError(res.data.detail);
+        }
+      } else {
+        navigate("/chat");
+      }
+      setSubmitting(false);
+    },
   });
+
+  useEffect(() => {
+    if (user) {
+      navigate("/chat");
+    }
+  }, [user]);
   return (
     <>
       <div className="flex flex-col justify-center items-center p-auto mt-8">
@@ -56,7 +75,8 @@ const Login = () => {
               </button>
             </div>
           </div>
-          <form action="" className="space-y-6" onSubmit={onSubmit}>
+          <form className="space-y-6" onSubmit={formik.handleSubmit}>
+            {error && <div>{JSON.stringify(error)}</div>}
             <div>
               <label
                 htmlFor=""
@@ -65,13 +85,14 @@ const Login = () => {
                 Email address
               </label>
               <input
-                {...register("email", { required: true, minLength: 10 })}
+                value={formik.values.email}
+                onChange={formik.handleChange}
                 name="email"
                 type="text"
                 className="w-full p-2 border bg-[#F8F8F8] rounded mt-1"
               />
-              {errors.email && <span>Invalid details</span>}
             </div>
+
             <div>
               <label
                 htmlFor=""
@@ -80,12 +101,12 @@ const Login = () => {
                 Password
               </label>
               <input
-                {...register("password", { required: true, minLength: 8 })}
+                value={formik.values.password}
+                onChange={formik.handleChange}
                 name="password"
                 type="text"
                 className="w-full p-2 border bg-[#F8F8F8] rounded mt-1"
               />
-              {errors.password && <span>Invalid details</span>}
             </div>
             <div>
               <a href="#" className="font-medium text-sm text-[#F9A242]">
@@ -93,7 +114,10 @@ const Login = () => {
               </a>
             </div>
             <div>
-              <button className="w-full py-2 px-4 bg-[#0B468C] text-white text-sm ">
+              <button
+                type="submit"
+                className="w-full py-2 px-4 bg-[#0B468C] text-white text-sm "
+              >
                 Log in
               </button>
             </div>

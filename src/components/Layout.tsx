@@ -1,4 +1,6 @@
-import Sidebar from "../sidebar";
+import Sidebar from "./Sidebar";
+
+// import icons
 import chatIcon from "/assets/chatmessage.svg";
 import searchIcon from "/assets/search.svg";
 import locationIcon from "/assets/location.svg";
